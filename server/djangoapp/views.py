@@ -3,6 +3,8 @@ from django.contrib.auth import login, logout, authenticate
 import logging
 import json
 from django.views.decorators.csrf import csrf_exempt
+from .models import CarMake, CarModel
+from .populate import initiate
 
 logger = logging.getLogger(__name__)
 
@@ -25,10 +27,6 @@ def logout_request(request):
     logout(request)
     data = {"userName": ""}
     return JsonResponse(data)
-
-
-from .models import CarMake, CarModel
-from .populate import initiate
 
 
 def get_cars(request):
