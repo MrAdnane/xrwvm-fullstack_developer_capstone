@@ -18,3 +18,17 @@ jobs:
         run: pip install flake8
       - name: Run flake8
         run: flake8 server/djangoapp --count --show-source --statistics
+
+  lint_js:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install JSHint
+        run: npm install -g jshint
+      - name: Run JSHint
+        run: jshint server/database/app.js server/database/review.js server/database/dealership.js
