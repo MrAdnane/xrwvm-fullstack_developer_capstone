@@ -19,3 +19,12 @@ def get_request(endpoint, **kwargs):
         return response.json()
     except Exception:
         print("Network exception occurred")
+
+
+def post_review(data_dict):
+    request_url = backend_url + "/insert_review"
+    try:
+        response = requests.post(request_url, json=data_dict)
+        return response.json()
+    except Exception:
+        print("Network exception occurred")
