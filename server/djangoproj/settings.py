@@ -138,3 +138,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'frontend/static')
 ]
 
+
+TEMPLATES[0]['DIRS'].append(os.path.join(BASE_DIR, 'frontend/build'))
+STATICFILES_DIRS.append(os.path.join(BASE_DIR, 'frontend/build/static'))
